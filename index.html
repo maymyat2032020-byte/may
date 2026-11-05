@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ms. May Myat Noe Khin | Portfolio</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #1e293b;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #0f172a;
+        }
+
+        :root {
+            --teal: #0d9488;
+            --teal-dark: #0f766e;
+            --teal-light: #f0fdfa;
+            --sidebar-bg: #ffffff;
+            --card-bg: #ffffff;
+            --muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        /* SIDEBAR STYLING */
+        .profile-sidebar {
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            min-height: 100vh;
+            position: sticky;
+            top: 0;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 5px 0 30px rgba(0, 0, 0, 0.02);
+        }
+
+        @media (max-width: 992px) {
+            .profile-sidebar {
+                position: relative;
+                min-height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, var(--teal), #0f766e);
+            border: 3px solid #ccfbf1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 10px 25px rgba(13, 148, 136, 0.25);
+            transform: rotate(-3deg);
+        }
+
+        /* MAIN CONTENT AREA */
+        .main-content-area {
+            padding: 50px 60px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content-area {
+                padding: 30px 20px;
+            }
+        }
+
+        /* HERO BANNER CARD */
+        .hero-banner {
+            background: linear-gradient(135deg, #0f766e, var(--teal));
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 15px 30px rgba(13, 148, 136, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner h1, .hero-banner p {
+            color: white !important;
+        }
+
+        /* SECTION STYLING */
+        .content-section {
+            padding: 50px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .content-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-tag {
+            color: var(--teal) !important;
+            letter-spacing: 3px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: inline-block;
+            background: var(--teal-light);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .section-title {
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #0f172a;
+        }
+
+        /* MODERN CARDS */
+        .custom-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+            height: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .custom-card:hover {
+            border-color: var(--teal);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(13, 148, 136, 0.08);
+        }
+
+        .custom-card h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+
+        .custom-card p {
+            color: var(--muted) !important;
+            font-size: 13.5px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* BADGES */
+        .badge-tech {
+            display: inline-block;
+            background: var(--teal-light);
+            color: var(--teal) !important;
+            border-radius: 8px;
+            padding: 5px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            margin: 2px;
+            border: 1px solid #99f6e4;
+        }
+
+        /* TIMELINE */
+        .timeline-item {
+            position: relative;
+            padding-left: 25px;
+            border-left: 2px solid var(--teal);
+            margin-bottom: 30px;
+        }
+
+        .timeline-item h5 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+
+        .timeline-date {
+            font-size: 11px;
+            color: var(--teal) !important;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .timeline-item p, .timeline-item li {
+            color: var(--muted) !important;
+            font-size: 14px;
+        }
+
+        /* BULLET LISTS */
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .bullet-list li::before {
+            content: '▪';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: bold;
+        }
+
+        /* BUTTONS & SOCIALS */
+        .btn-teal {
+            background: var(--teal);
+            color: #ffffff !important;
+            border: none;
+            border-radius: 12px;
+            padding: 11px 20px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(13, 148, 136, 0.2);
+        }
+
+        .btn-teal:hover {
+            background: var(--teal-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(13, 148, 136, 0.3);
+        }
+
+        .social-links a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 38px;
+            height: 38px;
+            background: #f1f5f9;
+            color: var(--teal) !important;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-right: 8px;
+            font-weight: 700;
+            font-size: 13px;
+            transition: 0.2s;
+            border: 1px solid var(--border);
+        }
+
+        .social-links a:hover {
+            background: var(--teal);
+            color: #fff !important;
+            border-color: var(--teal);
+        }
+
+        footer {
+            padding: 30px 0;
+            color: var(--muted) !important;
+            font-size: 13px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container-fluid p-0">
+    <div class="row g-0">
+
+        <!-- ================= LEFT COLUMN: SIDEBAR ================= -->
+        <div class="col-lg-3">
+            <div class="profile-sidebar">
+                <div>
+                    <!-- Avatar -->
+                    <div>
+                        <img src="visitWeb.JPG" alt="Profile Avatar" class="profile-avatar">
+
+                    </div>
+
+                    <!-- Sidebar Header Info -->
+                    <h3 class="fs-6 fw-bold text-center text-dark mb-1">May Myat Noe Khin</h3>
+                    <p class="text-center mb-4" style="color: var(--teal); font-size: 12px; font-weight: 700; text-transform: uppercase;">
+                        HND Computing Student
+                    </p>
+                    
+                    <!-- Short Bullet Snapshot Box -->
+                    <div class="bg-light p-3 rounded-4 border border-secondary border-opacity-10 mb-4 shadow-sm">
+                        <p class="small fw-bold text-dark mb-2">⚡ Quick Snapshot:</p>
+                        <ul class="bullet-list small mb-0">
+                            <li>Detail-oriented logic architect.</li>
+                            <li>Bridges backend workflows with analytics.</li>
+                            <li>Passionate about software design.</li>
+                        </ul>
+                    </div>
+
+                    <hr style="border-color: var(--border);">
+
+                    <!-- Quick Info List -->
+                    <div class="small mb-4 text-dark px-1">
+                        <p class="mb-2"><strong>🎓 College:</strong> YIC</p>
+                        <p class="mb-2"><strong>📊 Focus:</strong> Data Analysis & Dev</p>
+                        <p class="mb-2"><strong>📍 Location:</strong> Myanmar</p>
+                        <p class="mb-2"><strong>🗣️ Languages:</strong> English, Burmese</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="social-links mb-3 text-center">
+                        <a href="https://github.com/" target="_blank" title="GitHub">GH</a>
+                        <a href="https://linkedin.com/" target="_blank" title="LinkedIn">IN</a>
+                    </div>
+                    <a href="mailto:maymyatnoekhin@example.com" class="btn btn-teal w-100">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= RIGHT COLUMN: MAIN CONTENT ================= -->
+        <div class="col-lg-9">
+            <div class="main-content-area">
+
+                <!-- HERO BANNER WITH ADVANCED GREETING -->
+                <div class="hero-banner">
+                    <span class="badge bg-white text-dark px-3 py-1 rounded-pill mb-3 fw-bold" style="font-size: 11px; letter-spacing: 1px;">WELCOME TO MY SPACE</span>
+                    <h1 class="fw-bold fs-2 mb-2">Hello, I am Ms. May Myat Noe Khin</h1>
+                    <p class="mb-0 opacity-75 small">Aspiring Data Analyst & HND Computing Student at Youth International College (YIC).</p>
+                </div>
+
+                <!-- ABOUT & PASSION SECTION -->
+                <section id="about" class="content-section pt-0">
+                    <span class="section-tag">01 — Welcome</span>
+                    <h2 class="section-title">About Me & My Passion</h2>
+                    
+                    <div class="custom-card p-4">
+                        <ul class="bullet-list mb-0">
+                            <li>Currently pursuing a Higher National Diploma (HND) in Computing at Youth International College (YIC).</li>
+                            <li>Passionate about converting complex technical requirements into structured, clean, and logical software systems.</li>
+                            <li>Deeply enthusiastic about <strong>Data Analysis</strong>, relational database structures, and backend application workflows.</li>
+                            <li>Enjoys investigating how raw metrics tell actionable stories to support structured business decisions.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- EDUCATION EXPERIENCE -->
+                <section id="education" class="content-section">
+                    <span class="section-tag">02 — Background</span>
+                    <h2 class="section-title">Education & Academic Journey</h2>
+
+                    <div class="timeline-item">
+                        <span class="timeline-date">Current Studies</span>
+                        <h5>Higher National Diploma (HND) in Computing</h5>
+                        <p class="text-teal mb-2 fw-bold" style="font-size: 13px;">Youth International College (YIC)</p>
+                        <ul class="bullet-list">
+                            <li>Focusing on core software engineering and database schema optimization modules.</li>
+                            <li>Studying web application frameworks, network system administration, and data handling workflows.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="timeline-date">Continuous Growth</span>
+                        <h5>Independent Technical & Analytical Training</h5>
+                        <p class="text-teal mb-2 fw-bold" style="font-size: 13px;">Self-Directed & Project-Based Learning</p>
+                        <ul class="bullet-list">
+                            <li>Expanding core proficiencies into data querying languages and script performance optimization.</li>
+                            <li>Prototyping responsive layouts to build professional, comprehensive portfolios.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- EXPERIENCE & TECHNICAL SKILLS -->
+                <section id="skills" class="content-section">
+                    <span class="section-tag">03 — Expertise</span>
+                    <h2 class="section-title">Technical Skills & Core Abilities</h2>
+
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="custom-card">
+                                <h4>Data Analysis</h4>
+                                <p>Extracting intelligence, handling raw datasets, and formulating structured queries to convert metrics into valuable insights.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="custom-card">
+                                <h4>Database & MySQL</h4>
+                                <p>Designing normalized relational tables, managing schemas, and maintaining secure, robust data storage workflows.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="custom-card">
+                                <h4>Programming</h4>
+                                <p>Writing clean functional code using Python (Tkinter) and creating responsive script logic for applications.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="custom-card">
+                                <h4>Web Development</h4>
+                                <p>Building layouts with HTML5, CSS3, Bootstrap 5 frameworks, and modern, accessible markup standards.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="custom-card">
+                                <h4>Networking</h4>
+                                <p>Simulating network switching protocols, IP addressing, and infrastructure setups via Cisco Packet Tracer.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="custom-card">
+                                <h4>Project Control</h4>
+                                <p>Managing code repositories via GitHub and structuring collaborative development workflows.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FEATURED PROJECTS -->
+                <section id="projects" class="content-section">
+                    <span class="section-tag">04 — Portfolio</span>
+                    <h2 class="section-title">Featured Assignments & Projects</h2>
+
+                    <div class="row g-4">
+                        <!-- Project 1 -->
+                        <div class="col-md-6">
+                            <div class="custom-card">
+                                <h4>DoBu Martial Arts Online System</h4>
+                                <p>Developed a branded multi-page web platform featuring program schedules, membership pricing structures, customer registration portals, and secure user logins backed by MySQL data storage.</p>
+                                <div>
+                                    <span class="badge-tech">HTML/CSS</span>
+                                    <span class="badge-tech">PHP / Backend</span>
+                                    <span class="badge-tech">MySQL</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="col-md-6">
+                            <div class="custom-card">
+                                <h4>Helpdesk Management System</h4>
+                                <p>Created a comprehensive tracking solution designed to monitor employee assistance records, equipment allocation, technician scheduling, and operational incident tracking.</p>
+                                <div>
+                                    <span class="badge-tech">Python</span>
+                                    <span class="badge-tech">Tkinter</span>
+                                    <span class="badge-tech">MySQL</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="col-md-6">
+                            <div class="custom-card">
+                                <h4>Network Security & Infrastructure Plan</h4>
+                                <p>Engineered structured network simulation setups, layer switching policies, scope configurations, and risk mitigation strategies tailored for enterprise IT protocols.</p>
+                                <div>
+                                    <span class="badge-tech">Cisco Packet Tracer</span>
+                                    <span class="badge-tech">System Administration</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 4 -->
+                        <div class="col-md-6">
+                            <div class="custom-card">
+                                <h4>Responsive Student Portals</h4>
+                                <p>Designed and prototyped modern, clean user interfaces with intuitive navigation elements, secure inputs, and structured mobile-responsive layouts.</p>
+                                <div>
+                                    <span class="badge-tech">Bootstrap 5</span>
+                                    <span class="badge-tech">UI/UX Prototyping</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FOOTER -->
+                <footer>
+                    <p class="mb-0">© <span id="year"></span> Ms. May Myat Noe Khin · Youth International College (YIC) HND Computing Assignment Portfolio.</p>
+                </footer>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
